@@ -55,3 +55,8 @@ const cube = new THREE.Mesh(cubeGeometry, basicMaterial);
 scene.add(cube);
 renderer.render(scene, camera);
 
+// transform object 
+
+// rotation
+cube.rotation.y = Math.PI / 4;
+
