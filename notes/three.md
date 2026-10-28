@@ -24,3 +24,5 @@ Scene
 ├── Group
 └── Object3D lainnya
 
+
+Mesh = Geometry + Material
