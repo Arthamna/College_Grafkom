@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0">
+<canvas id="canvas" width="965" height="1000"></canvas>
+
+<script>
+const ctx = document.getElementById("canvas").getContext("2d");
+
+function poly(color, points) {
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.moveTo(...points[0]);
+
+  for (let i = 1; i < points.length; i++)
+    ctx.lineTo(...points[i]);
+
+  ctx.closePath();
+  ctx.fill();
+}
+
+function circle(color, x, y, r) {
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+// Background
+ctx.fillStyle = "#d3d3d3";
+ctx.fillRect(0, 0, 965, 1083);
+
+// Lingkaran
+circle("#87ceeb", 490, 637, 400);
+circle("#ff0000", 190, 137, 100);
+
+// Bagian kiri kapal
+poly("#800080", [[240,337], [90,637], [240,537]]);
+poly("#00008b", [[240,337], [340,337], [240,537]]);
+poly("#008000", [[340,337], [390,637], [240,537]]);
+poly("#ff00ff", [[90,637], [240,537], [190,637]]);
+poly("#ffff00", [[240,537], [390,637], [190,637]]);
+
+// Layar
+poly("#ffc0cb", [[390,237], [340,337], [440,287]]);
+poly("#fa8072", [[490,37], [390,237], [440,287]]);
+poly("#40e0d0", [[440,287], [340,337], [390,637]]);
+poly("#ffa500", [[440,287], [540,387], [390,637]]);
+
+// Bagian hitam
+poly("#000000", [
+  [490,37],
+  [590,237],
+  [740,337],
+  [890,637],
+  [390,637],
+  [540,387],
+  [440,287]
+]);
+
+// Segitiga bawah
+poly("#90ee90", [[240,687], [190,787], [290,787]]);
+poly("#fa8072", [[415,687], [390,737], [440,737]]);
+poly("#ffff00", [[340,787], [290,887], [390,887]]);
+poly("#0000ff", [[365,937], [340,987], [390,987]]);
+poly("#800080", [[490,737], [440,837], [540,837]]);
+
+poly("#008000", [[615,637], [590,687], [640,687]]);
+poly("#008000", [[640,737], [590,887], [690,887]]);
+poly("#90ee90", [[715,687], [690,737], [740,737]]);
+poly("#008000", [[790,687], [740,837], [840,837]]);
+poly("#90ee90", [[715,887], [690,937], [740,937]]);
+poly("#008000", [[615,937], [590,987], [640,987]]);
+</script>
+</body>
+</html>
